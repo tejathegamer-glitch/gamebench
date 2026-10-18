@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Compare gaming GPUs, laptop specifications and gaming performance with GameBench.">
+  <title>GameBench | Gaming Performance Comparator</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0f19;
+      color: #f4f6ff;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 8%;
+      background: #111827;
+      border-bottom: 1px solid #263247;
+    }
+    .logo { font-size: 25px; font-weight: bold; color: #65f5a1; }
+    nav a {
+      color: #d0d6e5;
+      text-decoration: none;
+      margin-left: 22px;
+    }
+    .hero {
+      text-align: center;
+      padding: 80px 20px 55px;
+      background: radial-gradient(ellipse at top, #183a36, #0b0f19 70%);
+    }
+    .tag {
+      color: #65f5a1;
+      letter-spacing: 2px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    h1 { font-size: clamp(38px, 6vw, 64px); margin: 20px 0; }
+    .hero p { color: #aeb8cb; line-height: 1.7; }
+    .search {
+      display: flex;
+      max-width: 600px;
+      margin: 28px auto 0;
+      gap: 10px;
+    }
+    input, select, button {
+      padding: 13px;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      background: #151e2d;
+      color: white;
+      font-size: 15px;
+    }
+    .search input { flex: 1; min-width: 0; }
+    button {
+      background: #65f5a1;
+      color: #07130d;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
+    main { max-width: 1100px; margin: auto; padding: 35px 20px; }
+    h2 { font-size: 27px; }
+    .muted { color: #9ba8bd; line-height: 1.6; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: #121a29;
+      border: 1px solid #29364a;
+      border-radius: 14px;
+      padding: 22px;
+    }
+    .emoji { font-size: 34px; }
+    .card p { color: #aeb8cb; line-height: 1.6; }
+    .card a { color: #65f5a1; text-decoration: none; }
+    .compare {
+      margin-top: 38px;
+      background: #121a29;
+      border: 1px solid #29364a;
+      padding: 25px;
+      border-radius: 14px;
+    }
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .controls select { width: 100%; }
+    #results { margin-top: 20px; line-height: 1.8; }
+    footer {
+      text-align: center;
+      padding: 30px 15px;
+      color: #8995a9;
+      border-top: 1px solid #263247;
+    }
+    @media (max-width: 600px) {
+      header { padding: 18px; }
+      nav a { margin-left: 8px; font-size: 13px; }
+      .search { flex-direction: column; }
+      .hero { padding-top: 55px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🎮 GameBench</div>
+    <nav>
+      <a href="#compare">Compare</a>
+      <a href="#games">Games</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="tag">YOUR GAMING HARDWARE GUIDE</div>
+    <h1>Choose Your Next<br>Gaming Machine.</h1>
+    <p>Compare GPUs, explore gaming performance<br>and make smarter hardware decisions.</p>
+    <form class="search" id="searchForm">
+      <input id="searchInput" placeholder="Search RTX 4050, RTX 5050..." aria-label="Search hardware">
+      <button type="submit">Search</button>
+    </form>
+  </section>
+
+  <main>
+    <section id="games">
+      <h2>Explore GameBench</h2>
+      <p class="muted">Your starting point for gaming hardware research.</p>
+      <div class="cards">
+        <article class="card">
+          <div class="emoji">⚡</div>
+          <h3>GPU Comparison</h3>
+          <p>Compare graphics cards, memory and hardware specifications.</p>
+          <a href="#compare">Compare GPUs →</a>
+        </article>
+        <article class="card">
+          <div class="emoji">🎯</div>
+          <h3>Game Performance</h3>
+          <p>Explore performance data for different games and resolutions.</p>
+          <a href="#compare">Explore performance →</a>
+        </article>
+        <article class="card">
+          <div class="emoji">💻</div>
+          <h3>Laptop Guide</h3>
+          <p>Understand laptop GPUs, power limits and specifications.</p>
+          <a href="#compare">Compare hardware →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="compare" id="compare">
+      <h2>GPU Comparison Tool</h2>
+      <p class="muted">Choose two GPUs to compare their specifications.</p>
+      <div class="controls">
+        <select id="gpu1" aria-label="First GPU">
+          <option value="rtx3050">RTX 3050 Laptop</option>
+          <option value="rtx4050" selected>RTX 4050 Laptop</option>
+          <option value="rtx4060">RTX 4060 Laptop</option>
+          <option value="rtx5050">RTX 5050 Laptop</option>
+        </select>
+        <select id="gpu2" aria-label="Second GPU">
+          <option value="rtx3050">RTX 3050 Laptop</option>
+          <option value="rtx4050">RTX 4050 Laptop</option>
+          <option value="rtx4060" selected>RTX 4060 Laptop</option>
+          <option value="rtx5050">RTX 5050 Laptop</option>
+        </select>
+      </div>
+      <button id="compareBtn" style="margin-top:15px">Compare Now</button>
+      <div id="results" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 GameBench · Gaming hardware comparison project</p>
+    <p>Performance data will be added and verified as the project develops.</p>
+  </footer>
+
+  <script>
+    const gpuData = {
+      rtx3050: { name: "RTX 3050 Laptop", vram: "4GB or 6GB", note: "Varies by version" },
+      rtx4050: { name: "RTX 4050 Laptop", vram: "6GB", note: "Power limit varies by laptop" },
+      rtx4060: { name: "RTX 4060 Laptop", vram: "8GB", note: "Power limit varies by laptop" },
+      rtx5050: { name: "RTX 5050 Laptop", vram: "8GB", note: "Check exact laptop configuration" }
+    };
+
+    function compareGPUs() {
+      const first = gpuData[document.getElementById("gpu1").value];
+      const second = gpuData[document.getElementById("gpu2").value];
+      const results = document.getElementById("results");
+
+      results.replaceChildren();
+
+      [first, second].forEach((gpu, index) => {
+        const card = document.createElement("div");
+        const title = document.createElement("h3");
+        title.textContent = (index + 1) + ". " + gpu.name;
+
+        const memory = document.createElement("p");
+        memory.textContent = "Graphics memory: " + gpu.vram;
+
+        const note = document.createElement("p");
+        note.textContent = gpu.note;
+
+        card.append(title, memory, note);
+        results.appendChild(card);
+      });
+
+      const notice = document.createElement("p");
+      notice.textContent = "FPS rankings will be shown when verified benchmark data is added.";
+      results.appendChild(notice);
+    }
+
+    document.getElementById("compareBtn").addEventListener("click", compareGPUs);
+    document.getElementById("gpu1").addEventListener("change", compareGPUs);
+    document.getElementById("gpu2").addEventListener("change", compareGPUs);
+
+    document.getElementById("searchForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const query = document.getElementById("searchInput").value.trim().toLowerCase();
+      const options = [...document.getElementById("gpu1").options];
+      const match = options.find(option => option.text.toLowerCase().includes(query));
+
+      if (match && query) {
+        document.getElementById("gpu1").value = match.value;
+        document.getElementById("compare").scrollIntoView({ behavior: "smooth" });
+        compareGPUs();
+      } else {
+        alert("Try searching for RTX 3050, RTX 4050, RTX 4060 or RTX 5050.");
+      }
+    });
+
+    compareGPUs();
+  </script>
+</body>
+</html>
